@@ -20,7 +20,7 @@
 				</div>
 			{% endfor %}
 
-			<a class="btn btn-secondary btn-lg btn-block" href="{{ url_for('auth.oauth_login') }}">Login with Major League Cyber</a>
+			<!--<a class="btn btn-secondary btn-lg btn-block" href="{{ url_for('auth.oauth_login') }}">Login with Major League Cyber</a>-->
 
 			<hr>
 
@@ -42,6 +42,18 @@
 						Password
 					</label>
 					<input class="form-control" type="password" name="password" id="password-input" {% if password %}value="{{ password }}"{% endif %}/>
+				</div>
+        <div class="form-group">
+					<label for="password-input">
+						姓名
+					</label>
+					<input class="form-control" type="text" name="real_name" id="real_name-input"/>
+				</div>
+        <div class="form-group">
+					<label for="password-input">
+						学号
+					</label>
+					<input class="form-control" type="text" name="student_id" id="student_id-input"/>
 				</div>
 				<div class="row pt-3">
 					<div class="col-md-12">

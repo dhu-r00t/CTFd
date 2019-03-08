@@ -5,12 +5,13 @@ services:
     build: .
     restart: always
     ports:
-      - "8000:8000"
+      - "80:8000"
     environment:
+      - SECRET_KEY=51bc74f1-0931-4e7c-a35e-0560edd9f26c
       - UPLOAD_FOLDER=/var/uploads
       - DATABASE_URL=mysql+pymysql://root:ctfd@db/ctfd
       - REDIS_URL=redis://cache:6379
-      - WORKERS=1
+      - WORKERS=4
       - LOG_FOLDER=/var/log/CTFd
       - ACCESS_LOG=-
       - ERROR_LOG=-
@@ -35,7 +36,8 @@ services:
       - .data/mysql:/var/lib/mysql
     networks:
         internal:
-    # This command is required to set important mariadb defaults
+          aliases:
+            - db
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
 
   cache:
