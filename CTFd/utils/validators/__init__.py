@@ -34,3 +34,6 @@ def unique_email(email, model=Users):
 def validate_country_code(country_code):
     if lookup_country_code(country_code) is None:
         raise ValidationError('Invalid Country')
+
+def validate_student_id(student_id):
+    return bool(re.match(r"^\d{9}$", student_id))

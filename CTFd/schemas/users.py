@@ -58,6 +58,27 @@ class UserSchema(ma.ModelSchema):
             validate.Length(min=1, error='Passwords must not be empty'),
         ]
     )
+    student_id = field_for(
+        Users,
+        'student_id',
+        validate=[
+            validate.Length(min=9,max=9, error='Student ID must be 9 digits'),
+        ]
+    )
+    real_name = field_for(
+        Users,
+        'real_name',
+        validate=[
+            validate.Length(min=1, error='Real name must not be empty'),
+        ]
+    )
+    contact = field_for(
+        Users,
+        'contact',
+        validate=[
+            validate.Length(min=1, error='Contact must not be empty'),
+        ]
+    )
 
     @pre_load
     def validate_name(self, data):
@@ -147,6 +168,9 @@ class UserSchema(ma.ModelSchema):
             'bracket',
             'id',
             'oauth_id',
+            'real_name',
+            'student_id',
+            'contact'
         ],
         'self': [
             'website',
@@ -157,7 +181,10 @@ class UserSchema(ma.ModelSchema):
             'bracket',
             'id',
             'oauth_id',
-            'password'
+            'password',
+            'real_name',
+            'student_id',
+            'contact'
         ],
         'admin': [
             'website',
@@ -174,7 +201,10 @@ class UserSchema(ma.ModelSchema):
             'oauth_id',
             'password',
             'type',
-            'verified'
+            'verified',
+            'real_name',
+            'student_id',
+            'contact'
         ]
     }
 

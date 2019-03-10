@@ -50,17 +50,17 @@
 					<tr>
 						<td width="10px" class="text-center"><b>ID</b>
 						</td>
-						<td class="text-center"><b>User</b>
+						<td class=""><b>User</b>
 						</td>
-						<td class="d-md-table-cell d-lg-table-cell text-center"><b>Email</b>
+						<td class="d-md-table-cell d-lg-table-cell"><b>Email</b>
 						</td>
-						<td class=""><b>Website</b>
+						<td class=""><b>Name</b>
 						</td>
-						<td class=""><b>Country</b>
+						<td class=""><b>ID</b>
+						</td>
+						<td class=""><b>Contact</b>
 						</td>
 						<td class="text-center"><b>Admin</b>
-						</td>
-						<td class="text-center"><b>Verified</b>
 						</td>
 						<td class="text-center"><b>Hidden</b>
 						</td>
@@ -90,16 +90,14 @@
 								<a href="mailto:{{ user.email }}" target="_blank">{{ user.email | truncate(32) }}</a>
 							{% endif %}
 						</td>
-						<td class="team-website text-center">
-							{% if user.website %}
-								<a href="{{ user.website }}" target="_blank">
-									<i class="btn-fa fas fa-external-link-alt" data-toggle="tooltip" data-placement="top"
-									   title="{{ user.website }}" aria-hidden="true"></i>
-								</a>
-							{% endif %}
+						<td class="team-name" value="{{ user.real_name if user.real_name is not none }}">
+							<span>{% if user.real_name %}{{ user.real_name }}{% endif %}</span>
 						</td>
-						<td class="team-country" value="{{ user.country if user.country is not none }}">
-							<span>{% if user.country %}{{ lookup_country_code(user.country) }}{% endif %}</span>
+						<td class="team-ID" value="{{ user.student_id if user.student_id is not none }}">
+							<span>{% if user.student_id %}{{ user.student_id }}{% endif %}</span>
+						</td>
+						<td class="team-contact" value="{{ user.contact if user.contact is not none }}">
+							<span>{% if user.contact %}{{ user.contact }}{% endif %}</span>
 						</td>
 						<td class="team-admin d-md-table-cell d-lg-table-cell text-center" value="{{ user.type }}">
 							{% if user.type == 'admin' %}

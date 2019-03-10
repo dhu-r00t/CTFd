@@ -6,7 +6,7 @@
 {% block content %}
 <div class="jumbotron">
 	<div class="container">
-		<h1>Register</h1>
+		<h1>注册</h1>
 	</div>
 </div>
 <div class="container">
@@ -20,26 +20,26 @@
 				</div>
 			{% endfor %}
 
-			<!--<a class="btn btn-secondary btn-lg btn-block" href="{{ url_for('auth.oauth_login') }}">Login with Major League Cyber</a>-->
+			<p>请填写你的真实姓名和学号，便于我们进行成绩统计以及招新工作</p>
 
 			<hr>
 
 			<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
 				<div class="form-group">
 					<label for="name-input">
-						User Name
+						用户名
 					</label>
 					<input class="form-control" type="text" name="name" id="name-input" {% if name %}value="{{ name }}"{% endif %} />
 				</div>
 				<div class="form-group">
 					<label for="email-input">
-						Email
+						邮箱
 					</label>
 					<input class="form-control" type="text" name="email" id="email-input" {% if email %}value="{{ email }}"{% endif %} />
 				</div>
 				<div class="form-group">
 					<label for="password-input">
-						Password
+						密码
 					</label>
 					<input class="form-control" type="password" name="password" id="password-input" {% if password %}value="{{ password }}"{% endif %}/>
 				</div>
@@ -47,13 +47,13 @@
 					<label for="password-input">
 						姓名
 					</label>
-					<input class="form-control" type="text" name="real_name" id="real_name-input"/>
+					<input class="form-control" type="text" name="real_name" id="real_name-input" {% if real_name %}value="{{ real_name }}"{% endif %}/>
 				</div>
         <div class="form-group">
 					<label for="password-input">
 						学号
 					</label>
-					<input class="form-control" type="text" name="student_id" id="student_id-input"/>
+					<input class="form-control" type="text" name="student_id" id="student_id-input" {% if student_id %}value="{{ student_id }}"{% endif %}/>
 				</div>
 				<div class="row pt-3">
 					<div class="col-md-12">

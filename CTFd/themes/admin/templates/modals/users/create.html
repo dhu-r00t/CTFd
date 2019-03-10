@@ -15,26 +15,19 @@
 		<input type="password" class="form-control" name="password" id="password"/>
 	</div>
 	<div class="form-group">
-		<label for="website">Website</label>
-		<input type="text" class="form-control" name="website" id="website"
-			   {% if user is defined and user.website %}value="{{ user.website }}"{% endif %}>
+		<label for="real_name">Name</label>
+		<input type="text" class="form-control" name="real_name" id="real_name"
+			   {% if user is defined and user.real_name %}value="{{ user.real_name }}"{% endif %}>
 	</div>
 	<div class="form-group">
-		<label for="affiliation">Affiliation</label>
-		<input type="text" class="form-control" name="affiliation" id="affiliation"
-			   {% if user is defined and user.affiliation %}value="{{ user.affiliation }}"{% endif %}>
+		<label for="student_id">ID</label>
+		<input type="text" class="form-control" name="student_id" id="student_id"
+			   {% if user is defined and user.student_id %}value="{{ user.student_id }}"{% endif %}>
 	</div>
 	<div class="form-group">
-		<label for="affiliation">Country</label>
-		<select class="form-control" id="country-input" name="country">
-			<option></option>
-			{% set countries = get_countries() %}
-			{% for country_code in countries.keys() %}
-				<option value="{{ country_code }}" {% if user is defined and user.country == country_code %}selected{% endif %}>
-					{{ countries[country_code] }}
-				</option>
-			{% endfor %}
-		</select>
+		<label for="contact">Contact</label>
+		<input type="text" class="form-control" name="contact" id="contact"
+			   {% if user is defined and user.contact %}value="{{ user.contact }}"{% endif %}>
 	</div>
 	<div class="form-group">
 		<div class="form-check form-check-inline">

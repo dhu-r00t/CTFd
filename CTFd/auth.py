@@ -132,14 +132,18 @@ def register():
         name = request.form['name']
         email_address = request.form['email']
         password = request.form['password']
+        real_name = request.form['real_name']
+        student_id = request.form['student_id']
 
         name_len = len(name) == 0
+        real_name_len = len(real_name) == 0
         names = Users.query.add_columns('name', 'id').filter_by(name=name).first()
         emails = Users.query.add_columns('email', 'id').filter_by(email=email_address).first()
         pass_short = len(password) == 0
         pass_long = len(password) > 128
         valid_email = validators.validate_email(request.form['email'])
         team_name_email_check = validators.validate_email(name)
+        valid_student_id = validators.validate_student_id(student_id)
 
         if not valid_email:
             errors.append("Please enter a valid email address")
@@ -161,6 +165,10 @@ def register():
             errors.append('Pick a shorter password')
         if name_len:
             errors.append('Pick a longer team name')
+        if real_name_len:
+            errors.append('Please enter your real name')
+        if not valid_student_id:
+            errors.append("Please enter a valid student id")
 
         if len(errors) > 0:
             return render_template(
@@ -168,14 +176,18 @@ def register():
                 errors=errors,
                 name=request.form['name'],
                 email=request.form['email'],
-                password=request.form['password']
+                password=request.form['password'],
+                real_name=request.form['real_name'],
+                student_id=request.form['student_id']
             )
         else:
             with app.app_context():
                 user = Users(
                     name=name.strip(),
                     email=email_address.lower(),
-                    password=password.strip()
+                    password=password.strip(),
+                    real_name=real_name.strip(),
+                    student_id=student_id.strip()
                 )
                 db.session.add(user)
                 db.session.commit()

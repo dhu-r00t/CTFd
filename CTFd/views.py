@@ -135,20 +135,20 @@ def settings():
     user = get_current_user()
     name = user.name
     email = user.email
-    website = user.website
-    affiliation = user.affiliation
-    country = user.country
+    student_id = user.student_id
+    real_name = user.real_name
+    contact = user.contact
     prevent_name_change = get_config('prevent_name_change')
     confirm_email = get_config('verify_emails') and not user.verified
     return render_template(
         'settings.html',
         name=name,
         email=email,
-        website=website,
-        affiliation=affiliation,
-        country=country,
+        student_id=student_id,
+        real_name=real_name,
         prevent_name_change=prevent_name_change,
-        confirm_email=confirm_email
+        confirm_email=confirm_email,
+        contact=contact
     )
 
 
