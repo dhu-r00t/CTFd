@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 from flask import request, redirect, url_for, session, abort, jsonify
 from CTFd.utils import config, get_config, get_app_config
 from CTFd.cache import cache
