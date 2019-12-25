@@ -146,6 +146,8 @@
 	<script src="{{ url_for('views.themes', theme='admin', path='js/utils.js') }}"></script>
 	<script src="{{ url_for('views.themes', theme='admin', path='js/ezq.js') }}"></script>
 	<script src="{{ url_for('views.themes', theme='admin', path='js/style.js') }}"></script>
+	<script src="{{ url_for('views.themes', theme='admin', path='js/mathjax-config.js') }}" defer></script>
+	<script src="{{ url_for('views.themes', theme='admin', path='js/vendor/mathjax-tex-svg.js') }}" defer></script>
 	{% block scripts %} {% endblock %}
 
 	{% for script in get_registered_admin_scripts() %}

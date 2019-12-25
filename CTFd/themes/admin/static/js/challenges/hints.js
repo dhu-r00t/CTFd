@@ -47,6 +47,7 @@ $(document).ready(function () {
                 });
                 var editor_value = $('#hint-write textarea').val();
                 $(event.target.hash).html(renderer.render(editor_value));
+                MathJax.typeset();
             }
         });
 
@@ -103,6 +104,7 @@ $(document).ready(function () {
                         });
                         var editor_value = $('#hint-write textarea').val();
                         $(event.target.hash).html(renderer.render(editor_value));
+                        MathJax.typeset();
                     }
                 });
 
