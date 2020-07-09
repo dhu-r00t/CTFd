@@ -129,7 +129,8 @@
 	var user_self = {{ (user.id == id) | tojson }};
 	var user_account_id = user_self ? "me" : user_id;
 	</script>
-	<script src="{{ url_for('views.themes', path='js/vendor/plotly.min.js') }}"></script>
+	<!-- script src="{{ url_for('views.themes', theme='admin', path='js/vendor/plotly.min.js') }}"></script -->
+	<script src="https://cdn.jsdelivr.net/npm/plotly.js@1.31.2/dist/plotly.min.js"></script>
 	<script src="{{ url_for('views.themes', path='js/utils.js') }}"></script>
 	<script src="{{ url_for('views.themes', path='js/user.js') }}"></script>
 {% endblock %}
