@@ -7,7 +7,7 @@ Description=CTFd docker instances
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/docker-compose up
+ExecStart=/usr/local/bin/docker-compose up
 ExecStop=/bin/kill -INT $MAINPID
 Type=idle
 Restart=always
