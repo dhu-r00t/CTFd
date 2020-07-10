@@ -1,6 +1,6 @@
 # Prerequisites:
-# - User "ctfd" with limited permission: `useradd -s /usr/sbin/nologin -r -M -d /home/ctfd ctfd`
-# - It's home directory w/ CTFd installed at ~ctfd/CTFd (don't forget to reset ownership of everything)
+# - User "ctfd" with limited permission: `useradd -s /usr/sbin/nologin -r -M ctfd`
+# - CTFd installed at /opt/ctfd/CTFd (don't forget to reset ownership of everything to "ctfd:ctfd")
 # - Have CTFd's requirements satisfied: `pip install -r requirements.txt`
 
 [Unit]
@@ -13,9 +13,9 @@ ExecStart=/usr/local/bin/gunicorn 'CTFd:create_app()' --workers 4 --worker-class
 ExecStop=/bin/kill -INT $MAINPID
 Type=idle
 Restart=always
-WorkingDirectory=/home/ctfd/CTFd
+WorkingDirectory=/opt/ctfd/CTFd
 User=ctfd
 
 [Install]
-WantedBy=network.target
+WantedBy=multi-user.target
 
