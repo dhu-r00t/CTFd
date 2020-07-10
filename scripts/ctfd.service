@@ -1,0 +1,20 @@
+# Prerequisites:
+# - User "ctfd" with limited permission: `useradd -s /usr/sbin/nologin -r -M -d /home/ctfd ctfd`
+# - It's home directory w/ CTFd installed at ~ctfd/CTFd (don't forget to reset ownership of everything)
+# - Have CTFd's requirements satisfied: `pip install -r requirements.txt`
+
+[Unit]
+Description=CTFd service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python2 serve.py
+ExecStop=/bin/kill -INT $MAINPID
+Type=idle
+Restart=always
+WorkingDirectory=/home/ctfd/CTFd
+User=ctfd
+
+[Install]
+WantedBy=network.target
+
