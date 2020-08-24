@@ -144,7 +144,7 @@ def export_csv():
         output,
         as_attachment=True,
         cache_timeout=-1,
-        attachment_filename="{name}-{table}.csv".format(name=ctf_config.ctf_name(), table=table)
+        attachment_filename=u"{name}-{table}.csv".format(name=ctf_config.ctf_name(), table=table)
     )
 
 

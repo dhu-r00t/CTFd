@@ -28,3 +28,5 @@ flask-marshmallow==0.9.0
 marshmallow-sqlalchemy==0.15.0
 Flask-SocketIO==3.0.2
 boto3==1.9.39
+werkzeug==0.16.0
+banal==0.4.2

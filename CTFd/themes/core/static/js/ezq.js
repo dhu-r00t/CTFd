@@ -43,6 +43,7 @@ function ezal(args){
 
     obj.find('.modal-footer').append(button);
     $('main').append(obj);
+    MathJax.typeset();
 
     obj.modal('show');
 
@@ -63,6 +64,7 @@ function ezq(args){
     obj.find('.modal-footer').append(confirm);
 
     $('main').append(obj);
+    MathJax.typeset();
 
     $(obj).on('hidden.bs.modal', function (e) {
         $(this).modal('dispose');

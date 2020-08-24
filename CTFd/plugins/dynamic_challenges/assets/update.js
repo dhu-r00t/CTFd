@@ -23,6 +23,7 @@ $('#desc-edit').on('shown.bs.tab', function (event) {
         $(event.target.hash).html(
             window.challenge.render(editor_value)
         );
+        MathJax.typeset();
     }
 });
 $('#new-desc-edit').on('shown.bs.tab', function (event) {
@@ -31,6 +32,7 @@ $('#new-desc-edit').on('shown.bs.tab', function (event) {
         $(event.target.hash).html(
             window.challenge.render(editor_value)
         );
+        MathJax.typeset();
     }
 });
 

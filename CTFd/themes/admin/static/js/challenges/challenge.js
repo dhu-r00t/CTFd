@@ -80,6 +80,7 @@ $(document).ready(function () {
                     challenge_data['script_root'] = script_root;
 
                     $('#challenge-window').append(template.render(challenge_data));
+                    MathJax.typeset();
 
                     $('.challenge-solves').click(function (e) {
                         getsolves($('#challenge-id').val())

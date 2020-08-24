@@ -1,0 +1,18 @@
+# Prerequisites:
+# - Have docker and docker-compose installed
+# - `/opt/ctfd/docker/docker-compose.yml` exists
+
+[Unit]
+Description=CTFd docker instances
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/bin/kill -INT $MAINPID
+Type=idle
+Restart=always
+WorkingDirectory=/opt/ctfd/docker
+
+[Install]
+WantedBy=multi-user.target
+

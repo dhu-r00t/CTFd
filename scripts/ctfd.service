@@ -1,0 +1,21 @@
+# Prerequisites:
+# - User "ctfd" with limited permission: `useradd -s /usr/sbin/nologin -r -M ctfd`
+# - CTFd installed at /opt/ctfd/CTFd (don't forget to reset ownership of everything to "ctfd:ctfd")
+# - Have CTFd's requirements satisfied: `pip install -r requirements.txt`
+
+[Unit]
+Description=CTFd service
+After=network.target
+
+[Service]
+#ExecStart=/usr/bin/python2 serve.py
+ExecStart=/usr/local/bin/gunicorn 'CTFd:create_app()' --workers 4 --worker-class "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" --bind '0.0.0.0:4000'
+ExecStop=/bin/kill -INT $MAINPID
+Type=idle
+Restart=always
+WorkingDirectory=/opt/ctfd/CTFd
+User=ctfd
+
+[Install]
+WantedBy=multi-user.target
+
